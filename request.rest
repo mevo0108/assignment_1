@@ -2,5 +2,31 @@
 GET http://localhost:3000/posts
 
 ### ADD A NEW POST
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "title": "Test Post",
+  "author": "Mevorah",
+  "content": "This is a test post"
+}
 
 ### GET A POST BY ID
+
+
+
+
+### GET ALL COMMENTS
+GET http://localhost:3000/comments
+
+### create a comments
+
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+  "postId": "697b26a0e346208e34ddde55",
+  "author": "Mevorah",
+  "content": "This is a comment"
+}
+

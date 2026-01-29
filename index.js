@@ -19,6 +19,11 @@ app.get('/health', (req, res) => {
 const postsRouter = require('./routes/postsRoute');
 app.use('/posts', postsRouter);
 
+// use the Comments router
+const commentsRouter = require('./routes/commentsRoute');
+app.use('/comments', commentsRouter);
+
+
 // listen to the port
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
