@@ -1,0 +1,6 @@
+### GET ALL POSTS
+GET http://localhost:3000/posts
+
+### ADD A NEW POST
+
+### GET A POST BY ID
