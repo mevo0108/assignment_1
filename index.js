@@ -16,8 +16,12 @@ app.get('/health', (req, res) => {
 });
 
 // Posts routes
-const postsRouter = require('./routes/posts.route');
-app.use('/post', postsRouter);
+const postsRouter = require("./routes/posts.route");
+app.use("/post", postsRouter);
+
+// Comments routes
+const commentRoutes = require("./routes/comment.route");
+app.use("/comment", commentRoutes)
 
 // Start the server
 app.listen(port, () => {
