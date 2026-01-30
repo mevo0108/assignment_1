@@ -1,20 +1,65 @@
-### GET ALL POSTS
-GET http://localhost:3000/posts
-
-### ADD A NEW POST
-
-### GET A POST BY ID
-
-
-### Health
+### ===============================
+### Health check
+### ===============================
 GET http://localhost:3000/health
 
-### Create post
+
+### ===============================
+### POSTS API
+### ===============================
+
+### Create a new post
 POST http://localhost:3000/post
 Content-Type: application/json
 
 {
   "title": "My first post",
-  "sender": "user123",
+  "sender": "user1",
   "content": "Hello world"
 }
+
+
+### Get all posts
+GET http://localhost:3000/post
+
+
+### Get post by id
+# Replace <POST_ID> with a real post id
+GET http://localhost:3000/post/<POST_ID>
+
+
+### ===============================
+### COMMENTS API
+### ===============================
+
+### Create a new comment
+POST http://localhost:3000/comment
+Content-Type: application/json
+
+{
+  "postId": "<POST_ID>",
+  "sender": "user2",
+  "content": "Nice post"
+}
+
+
+### Get comment by id
+# Replace <COMMENT_ID> with a real comment id
+GET http://localhost:3000/comment/<COMMENT_ID>
+
+
+### Update comment
+PUT http://localhost:3000/comment/<COMMENT_ID>
+Content-Type: application/json
+
+{
+  "content": "Updated comment text"
+}
+
+
+### Delete comment
+DELETE http://localhost:3000/comment/<COMMENT_ID>
+
+
+### Get all comments for a post
+GET http://localhost:3000/post/<POST_ID>/comments
