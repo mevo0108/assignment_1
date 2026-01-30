@@ -13,8 +13,8 @@ POST http://localhost:3000/post
 Content-Type: application/json
 
 {
-  "title": "My first post",
-  "sender": "user1",
+  "title": "My secound post",
+  "sender": "ofek",
   "content": "Hello world"
 }
 
@@ -38,7 +38,7 @@ Content-Type: application/json
 
 {
   "postId": "<POST_ID>",
-  "sender": "user2",
+  "sender": "Mevo",
   "content": "Nice post"
 }
 
@@ -59,7 +59,6 @@ Content-Type: application/json
 
 ### Delete comment
 DELETE http://localhost:3000/comment/<COMMENT_ID>
-
 
 ### Get all comments for a post
 GET http://localhost:3000/post/<POST_ID>/comments
