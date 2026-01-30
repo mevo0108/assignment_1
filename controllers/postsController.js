@@ -1,26 +1,40 @@
-const postsModel = require('../models/postsModel');
+const postsModel = require("../models/postsModel");
 
+// Get all posts
 const getAllPosts = async (req, res) => {
     try {
-        const author = req.query.author; // to filter by author if provided
-        if (author) {
-            const postsByAuthor = await postsModel.find({ author: author });
-            if (postsByAuthor.length === 0) {
-                return res.status(404).json("No posts found by this author");
-            }
-            res.json(postsByAuthor);
-        }
         const posts = await postsModel.find();
-        if (posts.length === 0) {
-            return res.status(404).json("No posts found");
+
+        if (!posts || posts.length === 0) {
+            return res.status(404).json({ message: "No posts found" });
         }
+
         res.json(posts);
     } catch (err) {
         console.error(err);
-        res.status(500).json("error retrieving posts");
+        res.status(500).json({ message: "Error retrieving posts" });
+    }
+};
+
+// Get a single post by ID
+const getPostById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const post = await postsModel.findById(id);
+
+        if (!post) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+
+        res.json(post);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Error retrieving post" });
     }
 };
 
 module.exports = {
-    getAllPosts
+    getAllPosts,
+    getPostById,
 };
