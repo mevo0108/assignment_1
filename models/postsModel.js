@@ -1,18 +1,20 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+
+// Post schema
 const postSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
+        required: true,
     },
-    author: {
+    sender: {
         type: String,
-        required: true
+        required: true,
     },
     content: {
         type: String,
-        required: true
+        required: true,
     },
-
 });
 
-module.exports = mongoose.model('post', postSchema);
+// Force collection name to avoid old schema cache
+module.exports = mongoose.model("Post", postSchema, "posts");
