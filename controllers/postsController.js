@@ -61,8 +61,43 @@ const getPostById = async (req, res) => {
     }
 };
 
+// Update Post by ID
+// Update post by id (FULL REPLACE using PUT)
+const updatePost = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { title, sender, content } = req.body;
+
+        // Validation: PUT requires all fields to be present
+        if (!title || !sender || !content) {
+            return res.status(400).json({ message: "All fields are required for PUT" });
+        }
+
+        const updatedPost = await postsModel.findByIdAndUpdate(
+            id,
+            { title, sender, content },
+            {
+                new: true,      // Return the updated document
+                overwrite: true // Completely replace the document (PUT behavior)
+            }
+        );
+
+        // If post was not found
+        if (!updatedPost) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+
+        res.json(updatedPost);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Error updating post" });
+    }
+};
+
+
 module.exports = {
     createPost,
     getAllPosts,
     getPostById,
+    updatePost,
 };
