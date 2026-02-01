@@ -18,6 +18,7 @@ router.get("/", getAllPosts);
 // Get post by id
 router.get("/:id", getPostById);
 
+
 // Get comments By post ID
 router.get("/:postId/comments", getCommentsByPost);
 

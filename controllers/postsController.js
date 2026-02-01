@@ -25,10 +25,12 @@ const createPost = async (req, res) => {
     }
 };
 
-// Get all posts
+// Get all posts (optionally filter by sender: GET /post?sender=<sender_id>)
 const getAllPosts = async (req, res) => {
     try {
-        const posts = await postsModel.find();
+        const { sender: senderId } = req.query;
+        const filter = senderId ? { sender: senderId } : {};
+        const posts = await postsModel.find(filter);
 
         if (!posts || posts.length === 0) {
             return res.status(404).json({ message: "No posts found" });
