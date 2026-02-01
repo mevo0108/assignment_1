@@ -16,14 +16,15 @@ app.get('/health', (req, res) => {
 });
 
 // Posts routes
-const postsRouter = require("./routes/posts.route");
+const postsRouter = require("./routes/postsRoute");
 app.use("/post", postsRouter);
 
-// Comments routes
-const commentRoutes = require("./routes/comment.route");
-app.use("/comment", commentRoutes)
+// use the Comments router
+const commentsRouter = require('./routes/commentsRoute');
+app.use('/comments', commentsRouter);
 
-// Start the server
+
+// listen to the port
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });

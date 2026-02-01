@@ -5,7 +5,7 @@ const {
     getPostById,
 } = require("../controllers/postsController");
 
-const { getCommentsByPost } = require("../controllers/commentController");
+const { getCommentsByPost } = require("../controllers/commentsController");
 
 const router = express.Router();
 

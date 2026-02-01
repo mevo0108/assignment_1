@@ -4,7 +4,7 @@ const {
     getCommentById,
     updateComment,
     deleteComment,
-} = require("../controllers/commentController");
+} = require("../controllers/commentsController");
 
 const router = express.Router();
 
