@@ -4,28 +4,35 @@ const app = express();
 const port = process.env.PORT || 3000;
 const connectDB = require('./config/db');
 
-// connect to database
+// Connect to MongoDB
 connectDB();
 
-// use express.json() to parse the request body
+// Middleware to parse JSON request bodies
 app.use(express.json());
 
-// דוגמה ל־health check
+// Health check endpoint
 app.get('/health', (req, res) => {
     res.json({ status: 'ok' });
 });
 
-// use the posts router
-const postsRouter = require('./routes/postsRoute');
-app.use('/posts', postsRouter);
+// Posts routes
+const postsRouter = require("./routes/posts.route");
+app.use("/post", postsRouter);
 
+<<<<<<< HEAD
 // use the Comments router
 const commentsRouter = require('./routes/commentsRoute');
 app.use('/comments', commentsRouter);
 
 
 // listen to the port
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-});
+=======
+// Comments routes
+const commentRoutes = require("./routes/comment.route");
+app.use("/comment", commentRoutes)
 
+// Start the server
+>>>>>>> e9a72c2b34f8d523d2c56e048bef274d5de57516
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
