@@ -16,12 +16,12 @@ app.get('/health', (req, res) => {
 });
 
 // Posts routes
-const postsRouter = require("./routes/postsRoute");
-app.use("/post", postsRouter);
+const postsRoute = require("./routes/postsRoute");
+app.use("/post", postsRoute);
 
 // use the Comments router
-const commentsRouter = require('./routes/commentsRoute');
-app.use('/comments', commentsRouter);
+const commentsRoute = require('./routes/commentsRoute');
+app.use('/comments', commentsRoute);
 
 
 // listen to the port
