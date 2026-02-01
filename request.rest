@@ -24,7 +24,7 @@ GET http://localhost:3000/post
 
 ### Get post by id
 # Replace <POST_ID> with a real post id
-GET http://localhost:3000/post/697f145843d7cd1ec763f5df
+GET http://localhost:3000/post/<POST_ID>
 
 
 
@@ -38,7 +38,7 @@ POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "postId": "697f145843d7cd1ec763f5df",
+  "postId": "<POST_ID>",  # Replace <POST_ID> with a real post id
   "sender": "Mevo",
   "content": "Nice post"
 }
@@ -46,20 +46,30 @@ Content-Type: application/json
 
 ### Get comment by id
 # Replace <COMMENT_ID> with a real comment id
-GET http://localhost:3000/comments/697f14a843d7cd1ec763f5e4
+GET http://localhost:3000/comments/<COMMENT_ID>
 
 
 ### Update comment
-PUT http://localhost:3000/comments/697f14a843d7cd1ec763f5e4
+PUT http://localhost:3000/comments/<COMMENT_ID>
 Content-Type: application/json
 
 {
   "content": "Updated comment text"
 }
 
+### Update Post
+PUT http://localhost:3000/post/<POST_ID>
+Content-Type: application/json
+
+{
+  "title": "Updated title",
+  "sender": "Ofek",
+  "content": "This post was fully replaced using PUT"
+}
+
 
 ### Delete comment
-DELETE http://localhost:3000/comments/697f14a843d7cd1ec763f5e4
+DELETE http://localhost:3000/comments/<COMMENT_ID>
 
 ### Get all comments for a post by post id
-GET http://localhost:3000/post/697f14a843d7cd1ec763f5e4/comments
+GET http://localhost:3000/post/<POST_ID>/comments

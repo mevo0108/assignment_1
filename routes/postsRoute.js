@@ -3,6 +3,7 @@ const {
     createPost,
     getAllPosts,
     getPostById,
+    updatePost,
 } = require("../controllers/postsController");
 
 const { getCommentsByPost } = require("../controllers/commentsController");
@@ -20,5 +21,8 @@ router.get("/:id", getPostById);
 
 // Get comments By post ID
 router.get("/:postId/comments", getCommentsByPost);
+
+// Update post by id
+router.put("/:id", updatePost);
 
 module.exports = router;
