@@ -27,6 +27,8 @@ GET http://localhost:3000/post
 GET http://localhost:3000/post/697f145843d7cd1ec763f5df
 
 
+
+
 ### ===============================
 ### COMMENTS API
 ### ===============================
